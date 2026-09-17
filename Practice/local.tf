@@ -1,4 +1,4 @@
 resource "local_file" "pet" {
-    filename = "/root/pets.txt"
+    filename = "/home/ubuntu/pets.txt"
     content = "We Love Pets!"
 }
