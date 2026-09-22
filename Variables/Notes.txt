@@ -1,0 +1,42 @@
+# Variables
+    Types : number, string, bool, any, list, tuple, map, object, set
+
+    1. Variable Declaration
+        variable "<var_name>" {
+            key = value
+            key = value
+            type=<var_type>
+            description="<var_desc>"
+        }
+
+    2. Interactive Variables
+        variable "<var_name>" {
+            
+        }
+
+    3. Command Line -var
+        variable "<var_name>" {
+
+        }
+        terraform apply -var "<var_name>=value" -var "<var_name>=value"
+
+    4. Automatically Loaded Varibable Files: 
+        terraform.tfvars
+        terraform.tfvars.json
+        *auto.tfvars
+        *auto.tfvars.json
+        format: 
+            <var_name> = <value>
+            
+        *otherwise*
+        terraform apply -var-file <filename>
+
+    5. Environment Var:
+        export TF_VAR_<var_name>="<value>"
+ 
+    Precedence:
+        -var or -var-file > 
+        *auto.tfvars > 
+        terraform.tfvars > 
+        Environment vars
+

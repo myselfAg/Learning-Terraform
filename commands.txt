@@ -1,0 +1,28 @@
+# Terraform Commands
+
+terraform init
+
+terraform plan
+
+terraform apply
+terraform apply -refresh-only -> if there is any update outside terraform's control use this. This command will now change any thing in resource but update the state file. The action will be taken during the next apply.
+
+terraform show
+terraform show -json
+
+terraform validate -> to validate
+terraform fmt -> makes the conf file more readable
+
+terraform providers
+terraform providers mirror /root/terraform/new_local_file
+
+terraform output
+terraform output <output_name>
+
+terraform graph -> before terraform init (this generats a graph in the format of dot)
+
+to vizualize the graph:
+    apt update
+    apt install graphviz -y
+    terraform graph | dot -Tsvg > graph.svg
+    
