@@ -1,0 +1,25 @@
+syntax:
+    terraform state <subcommand> [option] [args]
+subcommand:
+    list
+    mv
+    pull
+    rm
+    show
+
+example:
+    terraform state list    
+    terraform state list aws_s3_bucket.finance-23456
+
+    terraform state show [option] [address]
+    terraform state show aws_s3_bucket.finance-23456    
+
+    terraform state mv [option] SOURCE DESTINATION
+    terraform state mv aws_dynamodb_table.state-locking aws_dynamodb_table.state-locking-db # Renaming
+    # In the configuration file the name of the resource should be changed manually after changing the state file
+
+    terraform state pull #pull the state form remote backend
+    terraform state pull | jq '.resources[] | select(.name == "state-locking-db") |.instances[].attributes.hash_key'
+
+    terraform state rm ADDRESS
+    terraform state rm aws_s3_bucket.finance-23456# then manually remove the resource from config file
