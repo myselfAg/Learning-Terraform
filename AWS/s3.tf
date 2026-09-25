@@ -8,15 +8,15 @@ resource "aws_s3_bucket" "finance" {
 resource "aws_s3_object" "finance-2026" {
   bucket = "aws_s3_bucket.finance.id"
   key    = "finance-2026.doc"
-  source = "/root/finance/finance-2026.doc"
+  content = "/root/finance/finance-2026.doc"
 }
 
-data "aws_iam_group" "financedata" {
+data "aws_iam_group" "finance-data" {
   group_name = "finance-analysts"
 }
 
 resource "aws_s3_bucket_policy" "finance-policy" {
-  bucket = "aws_s3_bucket.finance.id"
+  bucket = aws_s3_bucket.finance.id
   policy = <<EOF
     {
         "Version": "2012-10-17",
