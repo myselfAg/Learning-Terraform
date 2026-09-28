@@ -1,0 +1,22 @@
+Terraform import does not the configuration file at all. It only updates the state file 
+with the details of the infrastructure imported.
+
+So, we have to manusally write the configuration file for the resource being imported.
+
+So, first create a empty resource block - 
+    resource "aws_instance" "webserver-2" {
+        # (resource arguments)
+    }
+
+then run the import command
+then fill the details in the resource block
+
+terraform plan
+
+now it is under the control of terraform
+
+syntex:
+    terraform import <resource_type>.<resource_name> <attribute>
+
+example:
+    terraform import aws_instance.webserver-2 <instanceID>

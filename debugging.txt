@@ -1,0 +1,15 @@
+values:
+    INFO
+    WARNING
+    ERROR
+    DEBUG
+    TRACE
+
+Setting Logging:
+    export TF_LOG=<value>
+
+Setting Logging:
+    export TF_LOG_PATH=/tmp/terraform.log
+
+Disable Logging:
+    unset TF_LOG_PATH
